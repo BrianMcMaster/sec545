@@ -36,20 +36,28 @@ End with an example of getting some data out of the system or using it for a lit
 
 Explain how to run the automated tests for this system
 
-### Break down into end to end tests
+### AWS CLI Install/Uninstall
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
+Install and Uninstall AWS CLI
 
 ```
-Give an example
+curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+unzip awscli-bundle.zip
+sudo ./awscli-bundle/install -b ~/bin/aws
+echo $PATH | grep ~/bin     // See if $PATH contains ~/bin (output will be empty if it doesn't)
+export PATH=~/bin:$PATH     // Add ~/bin to $PATH if necessary
+
+sudo rm -rf /usr/local/aws
+sudo rm /usr/local/bin/aws
+```
+
+### AWS CLI Snippets
+
+Misc snippets
+
+```
+aws iam list-users --output table --profile home
+aws iam get-account-summary  --profile home
 ```
 
 ## Deployment
